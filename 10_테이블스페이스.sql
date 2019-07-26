@@ -57,8 +57,9 @@ end;
 
 commit;
 
-select * from test_tbs;
 --system계정
+select * from test_tbs;
+
 --테이블 스페이스 공간이 부족하면.. 해결책!
     --1. 데이터 파일 추가 (공간 늘리기)
     alter tablespace my_tbs add datafile 'C:\oraclexe\app\oracle\oradata\XE\my_tbs2.dbf'
@@ -84,7 +85,10 @@ drop tablesapce 테이블스페이스이름 [옵션]
 --아무것도 없을 때만  drop을 할 수 있다 (데이터 포함되어 있으면 X)
 --아니면. including contents 라 설정해줌.
 
-drop tablespace my_tbs including contents and datafiles cascade constraints;
+drop tablespace my_tbs 
+including contents and datafiles 
+cascade constraints;
+
 select * from dba_data_files;       
 
 select * from dba_tablespaces;
